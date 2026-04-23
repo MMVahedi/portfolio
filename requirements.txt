@@ -1,0 +1,2 @@
+rendercv[full]==2.8
+hugo==0.160.1
