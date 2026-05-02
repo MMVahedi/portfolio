@@ -8,8 +8,8 @@ from .entries.Entry import Entry
 from .entries.Numbered import Numbered
 from .entries.Interests import Interests
 from .entries.Publication import Publication
-from .entries.PersonalInterests import PersonalInterests
 from .entries.Project import Project
 from .entries.ReversedNumbered import ReversedNumbered
 from .Section import Section
+from .Header import Header
 from .entries.Skills import Skills

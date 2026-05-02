@@ -4,3 +4,11 @@ build
 scripts
 sections
 .DS_Store
+sample_cv.yaml
+hugo_site/public
+hugo_site/content/cv
+hugo_site/static/cv
+hugo_site/.hugo_build.lock
+yamls
+photo.jpg
+hugo_site

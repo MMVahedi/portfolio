@@ -2,8 +2,12 @@ from __future__ import annotations
 
 from typing import Any
 
+from ruamel.yaml import YAML
 from rendercv.schema.models.cv.entries.bases.entry import BaseEntry
 from rendercv.schema.sample_generator import dictionary_to_yaml
+
+
+_yaml = YAML(typ="safe")
 
 
 class Entry(BaseEntry):
@@ -22,3 +26,16 @@ class Entry(BaseEntry):
         versioning metadata fields defined on `Entry`.
         """
         return dictionary_to_yaml(self.model_dump(mode="json", exclude_none=True))
+
+    @classmethod
+    def from_yaml(cls, yaml_text: str) -> "Entry":
+        """Create an entry object from its YAML representation."""
+        data = _yaml.load(yaml_text)
+
+        if data is None:
+            raise ValueError("YAML content is empty.")
+
+        if not isinstance(data, dict):
+            raise ValueError("YAML content must represent a mapping/object.")
+
+        return cls.model_validate(data)
